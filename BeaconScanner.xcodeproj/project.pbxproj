@@ -20,7 +20,6 @@
 		677226AE18FC3D2F00804FDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 677226A318FC3D2F00804FDA /* Images.xcassets */; };
 		677226AF18FC3D2F00804FDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 677226A418FC3D2F00804FDA /* main.m */; };
 		679835D718FC615D00E2E6D5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 679835D318FC615D00E2E6D5 /* Credits.rtf */; };
-		679835D818FC615D00E2E6D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 679835D518FC615D00E2E6D5 /* InfoPlist.strings */; };
 		679835DF18FC61C400E2E6D5 /* BeaconScannerTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 679835DB18FC61C400E2E6D5 /* BeaconScannerTests-Info.plist */; };
 		679835E318FC61D300E2E6D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 679835E118FC61D300E2E6D5 /* InfoPlist.strings */; };
 		679835E418FC623200E2E6D5 /* BeaconScannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 679835D918FC61A600E2E6D5 /* BeaconScannerTests.m */; };
@@ -220,7 +219,6 @@
 				6753158518EF27D30024E9CE /* Frameworks */,
 				6753158618EF27D30024E9CE /* Resources */,
 				011611A44B015773BFC6F747 /* [CP] Embed Pods Frameworks */,
-				970EC7A216DFABF9D45F79CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,9 +258,11 @@
 				ORGANIZATIONNAME = "Huge, Inc.";
 				TargetAttributes = {
 					6753158718EF27D30024E9CE = {
-						DevelopmentTeam = 453G4TFLMD;
+						DevelopmentTeam = QYU2SZHRLR;
 					};
 					675315A818EF27D30024E9CE = {
+						DevelopmentTeam = QYU2SZHRLR;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 6753158718EF27D30024E9CE;
 					};
 				};
@@ -272,6 +272,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -296,7 +297,6 @@
 				679835E318FC61D300E2E6D5 /* InfoPlist.strings in Resources */,
 				679835DF18FC61C400E2E6D5 /* BeaconScannerTests-Info.plist in Resources */,
 				679835D718FC615D00E2E6D5 /* Credits.rtf in Resources */,
-				679835D818FC615D00E2E6D5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,13 +316,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beacon Scanner/Pods-Beacon Scanner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/libextobjc/libextobjc.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libextobjc.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beacon Scanner/Pods-Beacon Scanner-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beacon Scanner/Pods-Beacon Scanner-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		21DCA0098D292027F2690985 /* [CP] Check Pods Manifest.lock */ = {
@@ -331,28 +338,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beacon Scanner-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		970EC7A216DFABF9D45F79CF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beacon Scanner/Pods-Beacon Scanner-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -517,6 +512,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconScanner/BeaconScanner-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BeaconScanner/BeaconScanner-Info.plist";
@@ -535,6 +531,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconScanner/BeaconScanner-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BeaconScanner/BeaconScanner-Info.plist";
@@ -549,7 +546,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beacon Scanner.app/Contents/MacOS/Beacon Scanner";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -563,6 +563,7 @@
 				INFOPLIST_FILE = "BeaconScannerTests/BeaconScannerTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hugeinc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BeaconScannerTests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -572,7 +573,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Beacon Scanner.app/Contents/MacOS/Beacon Scanner";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -582,6 +586,7 @@
 				INFOPLIST_FILE = "BeaconScannerTests/BeaconScannerTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hugeinc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BeaconScannerTests;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

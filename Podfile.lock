@@ -17,8 +17,8 @@ PODS:
     - libextobjc/EXTScope (= 0.4)
     - libextobjc/EXTSelectorChecking (= 0.4)
     - libextobjc/EXTSynthesize (= 0.4)
-    - libextobjc/NSInvocation+EXT (= 0.4)
-    - libextobjc/NSMethodSignature+EXT (= 0.4)
+    - "libextobjc/NSInvocation+EXT (= 0.4)"
+    - "libextobjc/NSMethodSignature+EXT (= 0.4)"
     - libextobjc/RuntimeExtensions (= 0.4)
     - libextobjc/UmbrellaHeader (= 0.4)
   - libextobjc/EXTADT (0.4):
@@ -37,9 +37,9 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTSynthesize (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.4):
+  - "libextobjc/NSInvocation+EXT (0.4)":
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.4):
+  - "libextobjc/NSMethodSignature+EXT (0.4)":
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4)
   - libextobjc/UmbrellaHeader (0.4)
@@ -56,6 +56,12 @@ DEPENDENCIES:
   - libextobjc
   - ReactiveCocoa
 
+SPEC REPOS:
+  trunk:
+    - BlocksKit
+    - libextobjc
+    - ReactiveCocoa
+
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   libextobjc: f2802d4262f6885570df9799747409ceb1de602c
@@ -63,4 +69,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1ed3d7ebe15a03726069be1da715cce97033d967
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.8.4
